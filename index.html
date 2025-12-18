@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>student registration</title>
+</head>
+<body>
+     <center>
+     <div >
+<h1>STUDENT FORM</h1>
+<table border="1" class="table1">
+     <tr>
+          <td>name</td><td><input id="name"></td>
+     </tr>
+     <tr>
+          <td>age</td><td><input type="number" id="age"></td>
+     </tr>
+     <tr>
+          <td>gender</td><td><input type="radio" id="male" name="gender" value="male"><label for="male">male</label>
+                             <input type="radio" id="female" name="gender" value="female"><label for="female">female</label> </td>
+     </tr>
+     <tr>
+          <td>course</td><td><select id="option"><option >java programming</option>
+                             <option >c++</option>
+                             <option>c</option>
+                         <option>python</option></select></td>
+     </tr>
+     <tr>
+          <td>email</td><td><input type="email" id="email"></td>
+     </tr>
+         <tr>
+    <td colspan="2">
+        <button onclick="save()" class="save1">Save</button>
+    </td>
+</tr>
+
+</table>
+</div>
+</center>
+<center>
+     <div>
+<table border="1"  >
+     <tr id="table2">
+          <td id="name1">name</td><td>age</td><td>gender</td><td>course</td><td>email</td><td>action</td>
+     </tr>
+</table>
+</div>
+</center>
+</body>
+</html>
+
+
+<script>
+     var name5=document.getElementById("name")
+     var age1=document.getElementById("age")
+     var email1=document.getElementById("email")
+     var option1=document.getElementById("option")
+     var tablerow=document.getElementById("table2")
+
+     function save(){
+          var g=document.querySelector('input[name="gender"]:checked')
+         
+        
+          var row=document.createElement("tr")
+          var column=document.createElement("td")
+          column.textContent=name5.value
+          row.appendChild(column)
+
+          var column1=document.createElement("td")
+          column1.textContent=age1.value
+          row.appendChild(column1)
+
+        
+        
+        var c3 = document.createElement("td")
+        c3.textContent = g.value   
+        row.appendChild(c3)
+         
+
+        var c5=document.createElement("td")
+        c5.textContent=option1.value
+        row.appendChild(c5)
+
+
+          var col4=document.createElement("td")
+          col4.textContent=email1.value
+          row.appendChild(col4)
+
+          var col6=document.createElement("td");
+          col6.innerHTML="<button onclick='actiondelete(event)' class='del'>delete</button>"
+          row.appendChild(col6)
+      
+
+          tablerow.parentNode.appendChild(row)
+          age1.value= ""
+          name5.value = ""
+          g.checked = false
+          email1.value=""
+          option1.value=""
+
+          
+     }
+     function actiondelete(event)
+     {
+          event.target.closest("tr").remove()
+     }
+     
+</script>
+
+<style>
+   div{
+     padding-top: 4%;
+   }
+   .save1{
+     background-color: aquamarine;
+     
+    width:100%;
+    padding:10px;
+    font-size:16px;
+
+   }
+
+   .del{
+     background-color: red;
+     padding:5px;
+   }
+   .table1{
+     box-shadow: 6px 6px 12px gray;
+   }
+   #table2{
+      box-shadow: 6px 6px 12px gray;
+   }
+     body {
+    background-color: #f4f6f8;
+    font-family: Arial, sans-serif;
+}
+
+.table1, table {
+    background-color: white;
+    border-radius: 6px;
+}
+
+
+   
+
+
+
+</style>
